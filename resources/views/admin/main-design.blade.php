@@ -92,11 +92,11 @@
                 </ul>
             </li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                        class="icon-windows"></i>Example dropdown </a>
+                        class="icon-windows"></i>Product</a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
+                    <li><a href="{{ route('admin.add-product')}}">Add Product</a></li>
+                    <li><a href="{{ route('admin.view-product')}}">View Product</a></li>
+                    <li><a href="#">View Order</a></li>
                 </ul>
             </li>
         </ul>
@@ -117,6 +117,11 @@
             @yield('view_category')
 
             @yield('edit_category')
+
+
+            @yield('add_product')
+
+            @yield('view_product')
         </section>
 
         <footer class="footer">
