@@ -70,7 +70,7 @@ class AdminController extends Controller
 
     public function viewProduct()
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(2);
         return view('admin.product.view-product', compact('products'));
     }
 
@@ -136,5 +136,15 @@ class AdminController extends Controller
         }
 
         $product->save();
+    }
+
+    public function searchProduct(Request $request)
+    {
+        $products = Product::where('product_title', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('product_description', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('product_category', 'LIKE', '%' . $request->search . '%')
+            ->paginate(2);
+
+        return view('admin.product.view-product', compact('products'));
     }
 }

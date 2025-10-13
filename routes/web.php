@@ -29,6 +29,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/delete_product/{product}', [AdminController::class, 'deleteProduct'])->name('admin.delete-product');
     Route::get('/edit-product/{product}', [AdminController::class, 'editProduct'])->name('admin.edit-product');
     Route::post('/update_product/{product}', [AdminController::class, 'updateProduct'])->name('admin.update-product');
+    Route::post('/search-product', [AdminController::class, 'searchProduct'])->name('admin.search-product');
+
 
 });
 

@@ -6,6 +6,16 @@
             {{ session('delete_message') }}
         </div>
     @endif
+
+    <div class="list-inline-item">
+        <form id="searchForm" action="{{ route('admin.search-product') }}" method="post">
+            @csrf
+            <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+            </div>
+        </form>
+    </div>
     <div class="block margin-bottom-sm">
         <div class="title"><strong>Products Table</strong></div>
         <div class="table-responsive">
