@@ -9,6 +9,12 @@ Route::get('/', [UserController::class, 'home'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/add_to_card/{id}', [UserController::class, 'addToCard'])->middleware(['auth', 'verified'])->name('add_to_card');
+
+
+Route::get('/product_details/{product}', [UserController::class, 'productDetails'])->name('product_details');
+Route::get('/view-all-products', [UserController::class, 'allProducts'])->name('all-products');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
