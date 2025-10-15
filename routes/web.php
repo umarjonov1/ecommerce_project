@@ -9,7 +9,9 @@ Route::get('/', [UserController::class, 'home'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/add_to_card/{id}', [UserController::class, 'addToCard'])->middleware(['auth', 'verified'])->name('add_to_card');
+Route::get('/add_to_cart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('add_to_cart');
+
+Route::get('/cart_products', [UserController::class, 'cartProducts'])->middleware(['auth', 'verified'])->name('cart_products');
 
 
 Route::get('/product_details/{product}', [UserController::class, 'productDetails'])->name('product_details');

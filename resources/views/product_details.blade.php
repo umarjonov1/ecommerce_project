@@ -2,9 +2,9 @@
 <base href="/public">
 @section('product_detail')
 
-    @if (session('card_message'))
+    @if (session('cart_message'))
         <div style="margin-bottom: 10px; color: black; background-color: green">
-            {{ session('card_message') }}
+            {{ session('cart_message') }}
         </div>
     @endif
     <div class="container">
@@ -33,7 +33,7 @@
                     </div>
                     <br><br><br>
                     <div class="checklist-block">
-                        <a href="{{ route('add_to_card', $product->id) }}" type="submit" class="btn btn-primary">Add to Card</a></div>
+                        <a href="{{ route('add_to_cart', $product->id) }}" type="submit" class="btn btn-primary">Add to Card</a></div>
                 </div>
             </div>
         </div>

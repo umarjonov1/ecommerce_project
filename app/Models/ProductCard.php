@@ -8,4 +8,9 @@ class ProductCard extends Model
 {
     protected $table = 'product_cards';
     protected $guarded = [];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
 }

@@ -36,13 +36,20 @@ class UserController extends Controller
         return view('all_products', compact('products'));
     }
 
-    public function addToCard($id)
+    public function addToCart($id)
     {
         $product_card = new ProductCard();
         $product_card->user_id = \auth()->id();
         $product_card->product_id = $id;
         $product_card->save();
 
-        return redirect()->back()->with('card_message', 'Product added to the card');
+        return redirect()->back()->with('cart_message', 'Product added to the card');
+    }
+
+    public function cartProducts()
+    {
+        $cartItems = ProductCard::where('user_id', auth()->id())->get();
+
+        return view('view_cart_products', compact('cartItems'));
     }
 }
