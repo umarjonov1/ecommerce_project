@@ -77,6 +77,9 @@
                 Dashboard
               </span>
                         </a>
+                        <a href="{{ route('cart_products') }}">
+                            <i class="fa fa-shopping-bag" aria-hidden="true">{{ $cartsCount }}</i>
+                        </a>
                     @else
                         <a href="{{ route('login') }}">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -89,11 +92,12 @@
                             <span>
                 Sign Up
               </span>
+                            <a href="{{ route('cart_products') }}">
+                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            </a>
                             @endif
                         </a>
-                        <a href="{{ route('cart_products') }}">
-                            <i class="fa fa-shopping-bag" aria-hidden="true">{{ $cartsCount }}</i>
-                        </a>
+
                         <form class="form-inline ">
                             <button class="btn nav_search-btn" type="submit">
                                 <i class="fa fa-search" aria-hidden="true"></i>

@@ -13,6 +13,10 @@ Route::get('/add_to_cart/{id}', [UserController::class, 'addToCart'])->middlewar
 
 Route::get('/cart_products', [UserController::class, 'cartProducts'])->middleware(['auth', 'verified'])->name('cart_products');
 
+Route::get('/remove_cart_product/{productCard}', [UserController::class, 'removeCartProduct'])->middleware(['auth', 'verified'])->name('remove_cart_product');
+
+Route::post('/confirm_order', [UserController::class, 'confirmOrder'])->middleware(['auth', 'verified'])->name('confirm_order');
+
 
 Route::get('/product_details/{product}', [UserController::class, 'productDetails'])->name('product_details');
 Route::get('/view-all-products', [UserController::class, 'allProducts'])->name('all-products');
