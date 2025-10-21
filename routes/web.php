@@ -8,6 +8,7 @@ use \App\Http\Controllers\AdminController;
 Route::get('/', [UserController::class, 'home'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/my_orders', [UserController::class, 'myOrders'])->middleware(['auth', 'verified'])->name('my_orders');
 
 Route::get('/add_to_cart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('add_to_cart');
 
@@ -42,6 +43,9 @@ Route::middleware('admin')->group(function () {
     Route::get('/edit-product/{product}', [AdminController::class, 'editProduct'])->name('admin.edit-product');
     Route::post('/update_product/{product}', [AdminController::class, 'updateProduct'])->name('admin.update-product');
     Route::post('/search-product', [AdminController::class, 'searchProduct'])->name('admin.search-product');
+
+    Route::get('/view_order', [AdminController::class, 'viewOrder'])->name('admin.view-order');
+    Route::post('/change_status/{order}', [AdminController::class, 'changeStatus'])->name('admin.order.change_status');
 
 
 });

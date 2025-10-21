@@ -86,6 +86,7 @@
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{ route('admin.add-product')}}">Add Product</a></li>
                     <li><a href="{{ route('admin.view-product')}}">View Product</a></li>
+                    <li><a href="{{ route('admin.view-order')}}">View Order</a></li>
                     <li><a href="#">View Order</a></li>
                 </ul>
             </li>
@@ -112,6 +113,8 @@
             @yield('add_product')
 
             @yield('view_product')
+
+            @yield('view_orders')
         </section>
 
         <footer class="footer">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -146,5 +147,20 @@ class AdminController extends Controller
             ->paginate(2);
 
         return view('admin.product.view-product', compact('products'));
+    }
+
+    public function viewOrder()
+    {
+        $orders = Order::all();
+
+        return view('admin.orders.view-order', compact('orders'));
+    }
+
+    public function changeStatus(Request $request, Order $order)
+    {
+        $order->status = $request->status;
+        $order->save();
+
+        return redirect()->back();
     }
 }
